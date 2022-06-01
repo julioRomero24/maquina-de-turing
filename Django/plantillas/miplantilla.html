@@ -1,0 +1,59 @@
+<html>
+    <style>
+         td {
+            font-size: 30px;
+            line-height: 1.42857143;
+        }
+        body{
+            background-color: #A2D6E4;
+        }
+    </style>
+    <body>
+
+         {% include "barra.html" %}
+        <button onclick="generarTabla();" id="entrada">Cargar a la maquina</button>
+        <hr/>
+        <div id="contenedor">
+            <table>
+            {% for i in tes%}
+                <tr>
+                    {% for c in Cadena %}
+                        <td style='background-color: #BBEFFF' width='50px' height='50px'>{{c}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+            <table>
+            {% for i in tes%}
+                <tr>
+                    {% for c in cinta %}
+                        <td style='background-color: #BBEFFF' width='50px' height='50px'>{{c}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <script>
+        function generarTabla(){
+        var contenedor = document.getElementById("contenedor");
+
+        contenedor.innerHTML = "";
+        var tabla="<table>";
+        for (var i=1;i<=1;i++){
+            tabla +="<tr>";
+            for (var c=0;c<{{numero}};c++){
+                tabla +="<td style='background-color: #BBEFFF' width='50px' height='50px'>{{Cadena.c}}</td>";
+            }
+            tabla += "</tr>";
+        }
+        tabla+="</table>";
+        contenedor.innerHTML=tabla;
+        }
+    </script>
+
+        <div class="cuadrado">
+            <div class="triangulo"></div>
+        </div>
+
+    </body>
+</html>
